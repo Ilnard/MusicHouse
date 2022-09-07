@@ -59,57 +59,40 @@
             </div>
         </div>
     </header>
-    <main class="main">
+    <main class="catalog">
         <div class="container">
-            <div class="main__inner">
-                <div class="main-header">
-                    <div class="main-logo">
-                        <img src="media/images/logo.png" alt="" class="main-logo__pict">
+            <div class="catalog__inner">
+                <h1 class="catalog__title">Каталог</h1>
+                <form method="post" action="" class="catalog-toolbar">
+                    <div class="catalog-toolbar-order">
+                        <label for="order" class="catalog-toolbar-order__name">Сортировка по:</label>
+                        <select name="order" id="order">
+                            <option value="new">Новизне</option>
+                            <option value="date">Дате производства</option>
+                            <option value="name">Названию</option>
+                            <option value="price">Цене</option>
+                        </select>
                     </div>
-                    <div class="main-deviz">Наш девиз 4 слова</div>
-                </div>
-                <div class="main-slider">
-                    <button class="main-slider-btn main-slider-btn_prev"><</button>
-                    <div class="main-slider-wrapper">
-                        <div class="main-slider-feed">
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/08202cb04c25c43386510f49e8a0f18f.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/55bf6561879d327861cb8bbf13f5139a.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/61e3012c9fbb2126150a65217989ac40.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/64cfdacbf99b58def0266e5637f67a60.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
+                    <div class="catalog-toolbar-filter">
+                        <div class="catalog-toolbar-filter__item">
+                            <label for="string">Струнные</label>
+                            <input type="checkbox" id="string" name="string">
+                        </div>
+                        <div class="catalog-toolbar-filter__item">
+                            <label for="piano">Клавишные</label>
+                            <input type="checkbox" id="piano" name="piano">
                         </div>
                     </div>
-                    <button class="main-slider-btn main-slider-btn_next">></button>
+                    <input type="submit" class="catalog-toolbar__btn" value="Обновить">
+                </form>
+                <div class="catalog-catalog">
+                    
                 </div>
             </div>
         </div>
     </main>
     <script src="js/script.js"></script>
-    <script>slider(); modalLog()</script>
+    <script src="js/catalog.js"></script>
+    <script></script>
 </body>
 </html>
