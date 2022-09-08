@@ -202,7 +202,7 @@ input:focus {
 .catalog__inner {
     padding-top: 100px;
 }
-.catalog__title {
+.section__title {
     font-size: 56px;
     text-align: center;
     margin-bottom: 30px;
@@ -257,4 +257,51 @@ input:focus {
 }
 .catalog-catalog__price {
     font-size: 20px;
+}
+.product__inner {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+.product__media {
+    height: 500px;
+    width: 50%;
+
+    position: relative;
+}
+.product__pict {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: contain;
+}
+.product__name {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+.product__price {
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+.product__list {
+    margin-bottom: 20px;
+}
+.product__btn {
+    padding: 7px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.adrss__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+.adrss__map {
+    margin-bottom: 30px;
+}
+.adrss__info {
+    font-size: 22px;
 }

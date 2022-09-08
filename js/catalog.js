@@ -7,56 +7,66 @@ const refresh = document.querySelector('.catalog-toolbar__btn');
 
 let items = [
     {
+        id: 1,
         img: 'media/images/08202cb04c25c43386510f49e8a0f18f.jpeg',
         name: 'Пианино',
         price: 5000,
         country: 'Франция',
         year: 2016,
-        model: 'Клавишные',
-        time: '1'
+        category: 'Клавишные',
+        time: '1',
+        count: 2
     },
     {
+        id: 2,
         img: 'media/images/08202cb04c25c43386510f49e8a0f18f.jpeg',
         name: 'АПианино',
         price: 4000,
         country: 'Франция',
         year: 2017,
-        model: 'Клавишные',
-        time: '2'
+        category: 'Клавишные',
+        time: '2',
+        count: 2
     },
     {
+        id: 3,
         img: 'media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg',
         name: 'БПочти скрипка',
         price: 9000,
         country: 'Италия',
         year: 2014,
-        model: 'Струнные',
-        time: '3'
+        category: 'Струнные',
+        time: '3',
+        count: 2
     },
     {
+        id: 4,
         img: 'media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg',
         name: 'Почти скрипка2',
         price: 8000,
         country: 'Италия',
         year: 2015,
-        model: 'Струнные',
-        time: '4'
+        category: 'Струнные',
+        time: '4',
+        count: 2
     },
     {
+        id: 5,
         img: 'media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg',
         name: 'Почти скрипка2',
         price: 8000,
         country: 'Италия',
         year: 2015,
-        model: 'Гитара',
-        time: '4'
+        category: 'Гитара',
+        time: '4',
+        count: 2
     },
 ]
 
 function addItemsToCatalog(order, filter) {
     if (filter[0] == true || filter[1] == true) {
-        if (filter[0]) itemsView = itemsView.concat(items.filter(item => item.model == 'Струнные'))
-        if (filter[1]) itemsView = itemsView.concat(items.filter(item => item.model == 'Клавишные'))
+        if (filter[0]) itemsView = itemsView.concat(items.filter(item => item.category == 'Струнные'))
+        if (filter[1]) itemsView = itemsView.concat(items.filter(item => item.category == 'Клавишные'))
     } else itemsView = items
 
     switch (order) {

@@ -44,3 +44,10 @@ function modalLog() {
     })
     
 }
+function viewProduct() {
+    const catalogItems = document.querySelectorAll('.catalog-catalog__item');
+
+    for (let i = 0; i < catalogItems.length; i++) {
+        catalogItems[i].addEventListener('click', location.href('http://'))
+    }
+}
