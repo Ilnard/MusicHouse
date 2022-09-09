@@ -1,3 +1,4 @@
+<script>
 const catalog = document.querySelector('.catalog-catalog');
 let order = 'new';
 let string = false;
@@ -116,3 +117,4 @@ refresh.addEventListener('click', (e) => {
     itemsView = [];
     addItemsToCatalog(order, filter);
 })
+</script>

@@ -1,3 +1,4 @@
+<? require_once 'config.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +11,18 @@
 <body>
     <div class="modal-bg">
         <div class="modal-auth">
-            <form action="" class="form-log" id="form-auth">
+            <form action="" class="form-log" id="form-auth" method="post">
                 <h2 class="form-log__name">Войти</h2>
                 <div class="form-log__inputs">
                     <input type="text" class="form-log__input" placeholder="Логин" name="login" pattern="^[A-Za-z0-9\-]+$" required>
                     <input type="password" class="form-log__input" placeholder="Пароль" name="password" required>
                 </div>    
                 <div class="form-log__btns">
-                    <button class="form-log__btn form-log__btn_auth">Войти</button>
+                    <button class="form-log__btn form-log__btn_auth" name="auth">Войти</button>
                     <button class="form-log__btn form-log__btn_close">Закрыть</button>
                 </div>
             </form>
-            <form action="" class="form-log" id="form-reg">
+            <form action="" class="form-log" id="form-reg" method="post">
                 <h2 class="form-log__name">Зарегистрироваться</h2>
                 <div class="form-log__inputs">
                     <input type="text" class="form-log__input" placeholder="Имя*" name="name" pattern="^[А-Яа-я0-9\-]+$" required>
@@ -37,7 +38,7 @@
                     </div>
                 </div>    
                 <div class="form-log__btns">
-                    <button class="form-log__btn form-log__btn_reg">Зарегистрироваться</button>
+                    <button class="form-log__btn form-log__btn_reg" name="reg">Зарегистрироваться</button>
                     <button class="form-log__btn form-log__btn_close">Закрыть</button>
                 </div>
             </form>
@@ -50,50 +51,18 @@
                     <img src="media/images/logo.png" alt="" class="logo__pict">
                 </div>
                 <nav class="nav">
-                    <a href="index.html" class="nav__link">О нас</a>
-                    <a href="catalog.html" class="nav__link">Каталог</a>
-                    <a href="#" class="nav__link">Где нас найти?</a>
+                    <a href="index.php" class="nav__link">О нас</a>
+                    <a href="catalog.php" class="nav__link">Каталог</a>
+                    <a href="adress.php" class="nav__link">Где нас найти?</a>
+                    <?if (isset($_SESSION['user'])) {?>
+                    <div class="nav__link nav__link_cart">Корзина</div>
+                    <div class="nav__link nav__link_logout">Выйти</div>
+                    <?}
+                    else {?>
                     <div class="nav__link nav__link_auth">Войти</div>
                     <div class="nav__link nav__link_reg">Зарегистрироваться</div>
+                    <?}?>
                 </nav>
             </div>
         </div>
     </header>
-    <main class="catalog">
-        <div class="container">
-            <div class="catalog__inner">
-                <h1 class="section__title">Каталог</h1>
-                <form method="post" action="" class="catalog-toolbar">
-                    <div class="catalog-toolbar-order">
-                        <label for="order" class="catalog-toolbar-order__name">Сортировка по:</label>
-                        <select name="order" id="order">
-                            <option value="new">Новизне</option>
-                            <option value="date">Дате производства</option>
-                            <option value="name">Названию</option>
-                            <option value="price">Цене</option>
-                        </select>
-                    </div>
-                    <div class="catalog-toolbar-filter">
-                        <div class="catalog-toolbar-filter__item">
-                            <label for="string">Струнные</label>
-                            <input type="checkbox" id="string" name="string">
-                        </div>
-                        <div class="catalog-toolbar-filter__item">
-                            <label for="piano">Клавишные</label>
-                            <input type="checkbox" id="piano" name="piano">
-                        </div>
-                    </div>
-                    <input type="submit" class="catalog-toolbar__btn" value="Обновить">
-                </form>
-                <div class="catalog-catalog">
-                    
-                </div>
-            </div>
-        </div>
-    </main>
-    <script></script>
-    <script src="js/catalog.js"></script>
-    <script src="js/script.js"></script>
-    <script></script>
-</body>
-</html>

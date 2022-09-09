@@ -50,6 +50,7 @@ input:focus {
     color: black;
     font-size: 18px;
     margin-right: 20px;
+    cursor: pointer;
 }
 .nav__link:last-child {
     margin-right: 0;
@@ -304,4 +305,64 @@ input:focus {
 }
 .adrss__info {
     font-size: 22px;
+}
+.admin-pan__inner {
+    padding-top: 100px;
+}
+.admin-pan__section {
+    padding: 50px;
+    width: 100%;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.425);
+}
+.admin-pan__title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.admin-pan__toolbar {
+    display: flex;
+}
+.admin-pan__tool {
+    margin-right: 15px;
+}
+.admin-pan__orders {
+
+}
+.admin-pan-order {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.admin-pan-order__media {
+    height: 300px;
+    width: 300px;
+
+    position: relative;
+}
+.admin-pan-order__pict {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: contain;
+}
+.admin-pan-order__name {
+    font-size: 20px;
+    text-align: center;
+}
+.admin-pan-order__client, .admin-pan-order__count {
+    text-align: center;
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+.admin-pan-order__action {
+    padding: 5px;
+    border-radius: 3px;
+    color: white;
+}
+.admin-pan-order__action_accept {
+    background: rgb(11, 158, 0);
+}
+.admin-pan-order__action_cancel {
+    background: rgb(144, 0, 0);
 }
