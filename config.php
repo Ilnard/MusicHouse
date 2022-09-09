@@ -39,3 +39,9 @@
 
         reg($data);
     }
+
+    if (isset($_GET['order_id']) && isset($_GET['message'])) {
+        $id = $GET['order_id'];
+        $message = $GET['message'];
+        mysqli_query($GLOBALS['id'], "UPDATE orders SET status = 'Отменен', message = '$message' WHERE id = '$id'")
+    }

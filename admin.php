@@ -21,12 +21,14 @@
                     </form>
                     <table class="admin-pan__orders">
                         <thead>
-                            <td>Фото</td>
-                            <td>Название</td>
-                            <td>Заказчик</td>
-                            <td>Количество</td>
-                            <td>Время</td>
-                            <td>Действия</td>
+                            <tr>
+                                <td>Фото</td>
+                                <td>Название</td>
+                                <td>Заказчик</td>
+                                <td>Количество</td>
+                                <td>Время</td>
+                                <td>Действия</td>
+                            </tr>
                         </thead>
                         <tr class="admin-pan__order">
                             <td>
@@ -49,7 +51,11 @@
                             <td>
                                 <div class="admin-pan-order__actions">
                                     <a href="?accept=" class="admin-pan-order__action admin-pan-order__action_accept">Подтвердить</a>
-                                    <a href="?cancel=" class="admin-pan-order__action admin-pan-order__action_cancel">Отменить</a>
+                                        <form class="admin-pan-order__cancel-action" action="" method="get">
+                                            <input type="hidden" name="id_order" value="1">
+                                            <textarea name="message" class="admin-pan-order__message"></textarea>
+                                            <button type="submit" class="admin-pan-order__action admin-pan-order__action_cancel">Отменить</button>
+                                        </form>
                                 </div>
                             </td>
                         </tr>
@@ -59,7 +65,7 @@
         </div>
     </main>
     <script></script>
-    <?require_once 'js/catalog_script.php'?>
     <?require_once 'js/script.php'?>
+    <?require_once 'js/admin_script.php'?>
 </body>
 </html>

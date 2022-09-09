@@ -320,12 +320,18 @@ input:focus {
 }
 .admin-pan__toolbar {
     display: flex;
+    margin-bottom: 50px;
 }
 .admin-pan__tool {
     margin-right: 15px;
 }
-.admin-pan__orders {
-
+.admin-pan__orders>thead>tr>td {
+    text-align: center;
+    font-weight: 700;
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
 }
 .admin-pan-order {
     display: flex;
@@ -351,18 +357,29 @@ input:focus {
 .admin-pan-order__client, .admin-pan-order__count {
     text-align: center;
 }
-td {
-    border: 1px solid black;
-    padding: 10px;
+.admin-pan-order__actions {
+    display: flex;
+    align-items: flex-end;
 }
 .admin-pan-order__action {
+    display: inline-block;
     padding: 5px;
     border-radius: 3px;
     color: white;
+    border: none;
+    font-size: 18px;
 }
-.admin-pan-order__action_accept {
+.admin-pan-order__action_accept, .accept-modal__accept {
     background: rgb(11, 158, 0);
+    margin-right: 10px;
 }
-.admin-pan-order__action_cancel {
+.admin-pan-order__action_cancel, .accept-modal__cancel {
     background: rgb(144, 0, 0);
+}
+.admin-pan-order__cancel-action {
+    display: flex;
+    flex-direction: column;
+}
+.admin-pan-order__message {
+    margin-bottom: 5px;
 }

@@ -32,7 +32,7 @@
         </div>
     </main>
     <script></script>
-    <?require_once 'js/catalog_script.php'?>
     <?require_once 'js/script.php'?>
+    <?require_once 'js/catalog_script.php'?>
 </body>
 </html>
