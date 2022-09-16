@@ -44,7 +44,7 @@ function modalLog() {
         })
     })
 }
-    <?if (!$_SESSION['user']) echo 'modalLog();';?>
+    <?if (!isset($_SESSION['user'])) echo 'modalLog();';?>
 function viewProduct() {
     const catalogItems = document.querySelectorAll('.catalog-catalog__item');
 

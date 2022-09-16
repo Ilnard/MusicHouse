@@ -12,36 +12,17 @@
                     <button class="main-slider-btn main-slider-btn_prev"><</button>
                     <div class="main-slider-wrapper">
                         <div class="main-slider-feed">
+<?php
+$result = mysqli_query($GLOBALS['db'], "SELECT photo, name FROM products ORDER BY id DESC LIMIT 5");
+while ($product = $result -> fetch_assoc()):
+?>
                             <div class="main-slider__slide">
                                 <div class="main-slider__media">
-                                    <img src="media/images/08202cb04c25c43386510f49e8a0f18f.jpeg" alt="" class="main-slider__product-pict">
+                                    <img src="media/images/<?=$product['photo']?>" alt="" class="main-slider__product-pict">
                                 </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
+                                <h3 class="main-slider__product-name"><?=$product['name']?></h3>
                             </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/55bf6561879d327861cb8bbf13f5139a.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/61e3012c9fbb2126150a65217989ac40.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
-                            <div class="main-slider__slide">
-                                <div class="main-slider__media">
-                                    <img src="media/images/64cfdacbf99b58def0266e5637f67a60.jpeg" alt="" class="main-slider__product-pict">
-                                </div>
-                                <h3 class="main-slider__product-name">Пианино</h3>
-                            </div>
+<?endwhile;?>                            
                         </div>
                     </div>
                     <button class="main-slider-btn main-slider-btn_next">></button>

@@ -1,4 +1,6 @@
-<? require_once 'config.php'?>
+<?php
+require_once 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>О нас</title>
+    <title><?=$title?></title>
 </head>
 <body>
     <div class="modal-bg">
@@ -53,12 +55,15 @@
                 <nav class="nav">
                     <a href="index.php" class="nav__link">О нас</a>
                     <a href="catalog.php" class="nav__link">Каталог</a>
-                    <a href="adress.php" class="nav__link">Где нас найти?</a>
+                    <a href="address.php" class="nav__link">Где нас найти?</a>
                     <?if (isset($_SESSION['user'])) {?>
-                    <div class="nav__link nav__link_cart">Корзина</div>
-                    <div class="nav__link nav__link_logout">Выйти</div>
+                    <a href="cart.php" class="nav__link nav__link_cart">Корзина</ф>
+                    <a href="?logout" class="nav__link nav__link_logout">Выйти</a>
                     <?}
-                    else {?>
+                    else if (isset($_SESSION['admin'])) {?>
+                    <a href="admin.php" class="nav__link">Админ панель</a>
+                    <a href="?logout" class="nav__link nav__link_logout">Выйти</a>
+                    <?} else {?>
                     <div class="nav__link nav__link_auth">Войти</div>
                     <div class="nav__link nav__link_reg">Зарегистрироваться</div>
                     <?}?>

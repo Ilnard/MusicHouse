@@ -1,21 +1,31 @@
-<?require_once 'header.php'?>
+<?php
+require_once 'header.php';
+
+$result = mysqli_query($GLOBALS['db'], "SELECT * FROM products WHERE id = $_GET[id]");
+$product = mysqli_fetch_assoc($result);
+
+?>
     <main class="product">
         <div class="container">
             <div class="product__inner">
                 <div class="product__media">
-                    <img src="media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg" alt="" class="product__pict">
+                    <img src="media/images/<?=$product['photo']?>" alt="" class="product__pict">
                 </div>
                 <div class="product__info">
-                    <h2 class="product__name">Пианино</h2>
-                    <div class="product__price">5000 RUB</div>
+                    <h2 class="product__name"><?=$product['name']?></h2>
+                    <div class="product__price"><?=$product['price']?> RUB</div>
                     <div class="product__charact">
                         <ul class="product__list">
-                            <li>Страна-производитель: Италия</li>
-                            <li>Год выпуска: 2014</li>
-                            <li>Модель: Струнные</li>
+                            <li>Страна-производитель: <?=$product['country']?></li>
+                            <li>Год выпуска: <?=$product['year']?></li>
+                            <li>Модель: <?=$product['model']?></li>
+                            <li>Категория: <?=$product['category']?></li>
                         </ul>
                     </div>
-                    <buttom class="product__btn">В корзину</buttom>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="<?=$product['id']?>">
+                        <button class="product__btn" name="add_to_cart">В корзину</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -7,61 +7,21 @@ const filter = [string, piano];
 const refresh = document.querySelector('.catalog-toolbar__btn');
 
 let items = [
+<?php
+    $result = mysqli_query($GLOBALS['db'], "SELECT * FROM products");
+    while ($product = $result -> fetch_assoc()):
+?>
     {
-        id: 1,
-        img: 'media/images/08202cb04c25c43386510f49e8a0f18f.jpeg',
-        name: 'Пианино',
-        price: 5000,
-        country: 'Франция',
-        year: 2016,
-        category: 'Клавишные',
-        time: '1',
-        count: 2
+        id: <?=$product['id']?>,
+        img: '<?=$product['photo']?>',
+        name: '<?=$product['name']?>',
+        price: <?=$product['price']?>,
+        country: '<?=$product['country']?>',
+        year: <?=$product['year']?>,
+        category: '<?=$product['category']?>',
+        count: <?=$product['count']?>
     },
-    {
-        id: 2,
-        img: 'media/images/08202cb04c25c43386510f49e8a0f18f.jpeg',
-        name: 'АПианино',
-        price: 4000,
-        country: 'Франция',
-        year: 2017,
-        category: 'Клавишные',
-        time: '2',
-        count: 2
-    },
-    {
-        id: 3,
-        img: 'media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg',
-        name: 'БПочти скрипка',
-        price: 9000,
-        country: 'Италия',
-        year: 2014,
-        category: 'Струнные',
-        time: '3',
-        count: 2
-    },
-    {
-        id: 4,
-        img: 'media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg',
-        name: 'Почти скрипка2',
-        price: 8000,
-        country: 'Италия',
-        year: 2015,
-        category: 'Струнные',
-        time: '4',
-        count: 2
-    },
-    {
-        id: 5,
-        img: 'media/images/2d5d0cc68ffe42f62dddcda05bf80304.jpeg',
-        name: 'Почти скрипка2',
-        price: 8000,
-        country: 'Италия',
-        year: 2015,
-        category: 'Гитара',
-        time: '4',
-        count: 2
-    },
+<?endwhile;?>
 ]
 
 function addItemsToCatalog(order, filter) {
@@ -92,15 +52,20 @@ function addItemsToCatalog(order, filter) {
     for (let i = 0; i < itemsView.length; i++) {
         catalog.innerHTML += 
         `
-        <div class="catalog-catalog__item">
+        <form class="catalog-catalog__item" method="post">
             <div class="catalog-catalog__media">
-                <img src="${itemsView[i].img}" alt="" class="catalog-catalog__pict">
+                <img src="media/images/${itemsView[i].img}" alt="" class="catalog-catalog__pict">
             </div>
             <div class="catalog-catalog__info">
                 <h3 class="catalog-catalog__name">${itemsView[i].name}</h3>
                 <div class="catalog-catalog__price">${itemsView[i].price} RUB</div>
+                    <input type="hidden" value="${itemsView[i].id}" name="id">
+                    <button type="submit" name="open_product">Открыть товар</button>
+                    <?if (isset($_SESSION)) {?>
+                        <button type="submit" name="add_to_cart">Добавить в корзину</button>
+                    <?}?>
             </div>
-        </div>
+        </form>
         `
         
     }
@@ -109,9 +74,9 @@ addItemsToCatalog(order, filter);
 
 refresh.addEventListener('click', (e) => {
     e.preventDefault();
-    order = document.querySelector("select[name='order'").value;
-    filter[0] = document.querySelector("input[name='string'").checked;
-    filter[1] = document.querySelector("input[name='piano'").checked; 
+    order = document.querySelector("select[name='order']").value;
+    filter[0] = document.querySelector("input[name='string']").checked;
+    filter[1] = document.querySelector("input[name='piano']").checked; 
 
     catalog.innerHTML = '';
     itemsView = [];
